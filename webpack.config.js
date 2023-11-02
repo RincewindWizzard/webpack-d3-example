@@ -1,8 +1,8 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
-
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 
@@ -12,7 +12,7 @@ module.exports = {
         main: './src/index.ts',
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
@@ -37,6 +37,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/templates/index.hbs',
             filename: 'index.html',
@@ -47,6 +48,13 @@ module.exports = {
     ],
     resolve: {
         extensions: ['.js', '.ts'],
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+    },
+    performance: {
+        hints: false,
     },
     devServer: {
         static: path.join(__dirname, 'dist'),
