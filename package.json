@@ -31,7 +31,9 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "@types/plotly.js": "^2.12.29",
     "bulma": "^0.9.4",
-    "d3": "^7.8.5"
+    "d3": "^7.8.5",
+    "plotly.js-dist": "^2.27.0"
   }
 }
