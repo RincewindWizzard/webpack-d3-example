@@ -1,32 +1,5 @@
-// import * as Chartist from 'chartist';
-//
-// import 'chartist';
-// import 'chartist/dist/index.scss';
-// import 'chartist-plugin-tooltips';
-// import 'chartist-plugin-legend';
-//
-//
-// document.addEventListener('DOMContentLoaded', () => {
-//     const container = document.getElementById('diagram')
-//     if(container) {
-//         const data = {
-//             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-//             series: [
-//                 [5, 2, 4, 2, 0]
-//             ]
-//         };
-//
-//         const options = {
-//             width: container.offsetWidth,
-//             height: container.offsetHeight
-//         };
-//
-//         new Chartist.LineChart('#diagram', data, options);
-//     }
-// });
-
 import 'chartist/dist/index.scss';
-import {LineChart, AutoScaleAxis, Interpolation} from 'chartist';
+import {AutoScaleAxis, Interpolation, LineChart} from 'chartist';
 
 const container = document.getElementById('diagram')
 if (container) {
@@ -35,11 +8,20 @@ if (container) {
         {
             series: [
                 [
-                    {x: 1, y: 100},
-                    {x: 2, y: 50},
-                    {x: 3, y: 25},
-                    {x: 5, y: 12.5},
-                    {x: 8, y: 6.25}
+                    {x: 1, y: 1},
+                    {x: 2, y: 2},
+                    {x: 3, y: 5},
+                    {x: 5, y: 6},
+                    {x: 8, y: 7},
+                    // {x: 9, y: 8},
+                ],
+                [
+                    {x: 8, y: 7},
+                    {x: 9, y: 8},
+                    {x: 10, y: 6},
+                    {x: 11, y: 5},
+                    {x: 12, y: 2},
+                    {x: 13, y: 1}
                 ]
             ]
         },
@@ -51,7 +33,11 @@ if (container) {
             axisX: {
                 type: AutoScaleAxis,
                 onlyInteger: true
-            }
+            },
+            axisY: {
+                type: AutoScaleAxis,
+                onlyInteger: true
+            },
         }
     )
 }
