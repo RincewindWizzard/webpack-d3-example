@@ -1,3 +1,11 @@
-body {
-  color: aquamarine;
+//body {
+//  color: aquamarine;
+//}
+
+
+#diagram {
+  min-width: 40em;
+  min-height: 40em;
+  max-height: 40em;
+  overflow-y: auto;
 }
