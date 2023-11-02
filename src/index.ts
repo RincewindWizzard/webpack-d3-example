@@ -1,7 +1,7 @@
 import "bulma"
 
 import "./style/main.scss"
-import "./script/d3sample"
+import "./script/apexcharts"
 
 // const body = document.querySelector('body')
 // if (body) {
